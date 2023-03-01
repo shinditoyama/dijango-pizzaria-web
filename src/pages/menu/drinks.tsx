@@ -13,6 +13,7 @@ import {
   Panel,
   Stack,
   Table,
+  Toggle,
 } from "rsuite";
 
 const { Column, HeaderCell, Cell } = Table;
@@ -42,6 +43,12 @@ export default function Drinks() {
   const deleteData = async (id: string, name: string) => {
     var result = confirm(`Deseja excluir: ${name}?`);
     if (result) await FirebaseService.deleteDocument("drinks", id);
+  };
+
+  const toggleStatus = async (prod: any) => {
+    await FirebaseService.updateDocument("drinks", prod.id, {
+      status: !prod.status,
+    });
   };
 
   const filteredItems = data?.filter(
@@ -117,6 +124,19 @@ export default function Drinks() {
               </Column>
 
               <Column flexGrow={1}>
+                <HeaderCell>Ativo</HeaderCell>
+                <Cell>
+                  {(rowData) => (
+                    <Toggle
+                      disabled={!user}
+                      checked={rowData.status}
+                      onChange={() => toggleStatus(rowData)}
+                    />
+                  )}
+                </Cell>
+              </Column>
+
+              <Column flexGrow={1}>
                 <HeaderCell>Ação</HeaderCell>
                 <Cell>
                   {(rowData) => (
@@ -124,14 +144,14 @@ export default function Drinks() {
                       <button
                         disabled={!user}
                         onClick={() => updateHandler(rowData)}
-                        className="hover:text-blue-500 disabled:text-gray-300"
+                        className="text-green-500 hover:text-green-800 disabled:text-gray-300"
                       >
                         <PencilSquareIcon className="w-4 h-4" />
                       </button>
                       <button
                         disabled={!user}
                         onClick={() => deleteData(rowData.id, rowData.name)}
-                        className="hover:text-blue-500 disabled:text-gray-300"
+                        className="text-red-500 hover:text-red-800 disabled:text-gray-300"
                       >
                         <TrashIcon className="w-4 h-4" />
                       </button>

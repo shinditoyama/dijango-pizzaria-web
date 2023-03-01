@@ -3,12 +3,12 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC2PtAhRtVypmK0NjXadhvbV8udo9cBxxI",
-  authDomain: "pizzaria-de5fa.firebaseapp.com",
-  projectId: "pizzaria-de5fa",
-  storageBucket: "pizzaria-de5fa.appspot.com",
-  messagingSenderId: "468038102536",
-  appId: "1:468038102536:web:c9439bcd859134aca6ebbd",
+  apiKey: "AIzaSyC2U6Tfk0Eeq24WUAsA8dQnBtSZCURbmWM",
+  authDomain: "dijango-s-pizzaria.firebaseapp.com",
+  projectId: "dijango-s-pizzaria",
+  storageBucket: "dijango-s-pizzaria.appspot.com",
+  messagingSenderId: "350622771368",
+  appId: "1:350622771368:web:244dea28d039d0796b7a9d",
 };
 
 //const app = initializeApp(firebaseConfig);

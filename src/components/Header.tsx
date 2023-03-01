@@ -23,7 +23,7 @@ export default function Header() {
       <Nav pullRight>
         <Nav.Menu
           icon={<UserIcon className="w-6 h-6" />}
-          title={`${user?.displayName || "Login"} `}
+          title={`${(user && `Administrador`) || "Login"} `}
           placement="bottomEnd"
         >
           <Nav.Item panel style={{ padding: 10, width: 250 }}>

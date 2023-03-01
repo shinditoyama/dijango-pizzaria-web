@@ -18,6 +18,7 @@ export default function FormDrink({ open, onClose, temp }: Props) {
     name,
     price: Number(price),
     description,
+    status: true,
   };
 
   const createData = async (e: React.FormEvent<HTMLFormElement>) => {

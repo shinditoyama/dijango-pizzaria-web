@@ -20,6 +20,7 @@ export default function FormPizza({ open, onClose, temp }: Props) {
     priceOne: Number(priceOne),
     priceTwo: Number(priceTwo),
     description,
+    status: true,
   };
 
   const createData = async (e: React.FormEvent<HTMLFormElement>) => {

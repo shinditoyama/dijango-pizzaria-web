@@ -125,14 +125,14 @@ export default function Custumer() {
                       <button
                         disabled={!user}
                         onClick={() => updateHandler(rowData)}
-                        className="hover:text-blue-500 disabled:text-gray-300"
+                        className="text-green-500 hover:text-green-800 disabled:text-gray-300"
                       >
                         <PencilSquareIcon className="w-4 h-4" />
                       </button>
                       <button
                         disabled={!user}
                         onClick={() => deleteData(rowData.id, rowData.name)}
-                        className="hover:text-blue-500 disabled:text-gray-300"
+                        className="text-red-500 hover:text-red-800 disabled:text-gray-300"
                       >
                         <TrashIcon className="w-4 h-4" />
                       </button>
