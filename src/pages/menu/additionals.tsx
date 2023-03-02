@@ -4,7 +4,7 @@ import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/solid";
 import Head from "next/head";
 import { useState } from "react";
 import { ClipLoader } from "react-spinners";
-import { Button, Panel, Stack, Table } from "rsuite";
+import { Breadcrumb, Button, Panel, Stack, Table } from "rsuite";
 
 const { Column, HeaderCell, Cell } = Table;
 
@@ -34,54 +34,6 @@ export default function Additionals() {
     if (result) await FirebaseService.deleteDocument("additionals", id);
   };
 
-  /*const columns = [
-    {
-      name: "Nome",
-      selector: (row: any) => row.name,
-    },
-    {
-      name: "Preço Broto",
-      selector: (row: any) =>
-        row.priceOne.toLocaleString("pt-br", {
-          style: "currency",
-          currency: "BRL",
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        }),
-    },
-    {
-      name: "Preço Grande",
-      selector: (row: any) =>
-        row.priceTwo.toLocaleString("pt-br", {
-          style: "currency",
-          currency: "BRL",
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        }),
-    },
-    {
-      name: "Actions",
-      selector: (row: any) => (
-        <div className="flex gap-4">
-          <button
-            disabled={!user}
-            onClick={() => updateHandler(row)}
-            className="hover:text-blue-500 disabled:text-gray-300"
-          >
-            <PencilSquareIcon className="w-4 h-4" />
-          </button>
-          <button
-            disabled={!user}
-            onClick={() => deleteData(row.id, row.name)}
-            className="hover:text-blue-500 disabled:text-gray-300"
-          >
-            <TrashIcon className="w-4 h-4" />
-          </button>
-        </div>
-      ),
-    },
-  ];*/
-
   return (
     <>
       <Head>
@@ -96,11 +48,20 @@ export default function Additionals() {
         {data && (
           <Panel
             bordered
-            header={<h3 className="title">Borda Recheada</h3>}
-            className="bg-white mb-4"
+            header={
+              <>
+                <h3 className="title">Borda Recheada</h3>
+                <Breadcrumb>
+                  <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                  <Breadcrumb.Item href="/menu">Pizza</Breadcrumb.Item>
+                  <Breadcrumb.Item active>Borda Recheada</Breadcrumb.Item>
+                </Breadcrumb>
+              </>
+            }
+            className="bg-white"
           >
             <Stack
-              className="table-toolbar mb-3"
+              className="table-toolbar pb-3"
               justifyContent="space-between"
             >
               <Button

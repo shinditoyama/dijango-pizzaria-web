@@ -11,6 +11,7 @@ import { useState } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { ClipLoader } from "react-spinners";
 import {
+  Breadcrumb,
   Button,
   DateRangePicker,
   Pagination,
@@ -80,11 +81,19 @@ export default function Order() {
         {orders && (
           <Panel
             bordered
-            header={<h3 className="title">Histórico de Venda</h3>}
-            className="bg-white mb-4"
+            header={
+              <>
+                <h3 className="title">Histórico de Venda</h3>
+                <Breadcrumb>
+                  <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                  <Breadcrumb.Item active>Vendas</Breadcrumb.Item>
+                </Breadcrumb>
+              </>
+            }
+            className="bg-white"
           >
             <Stack
-              className="table-toolbar mb-3"
+              className="table-toolbar pb-3"
               justifyContent="space-between"
             >
               <DateRangePicker

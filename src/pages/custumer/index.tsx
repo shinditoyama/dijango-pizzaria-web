@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { ClipLoader } from "react-spinners";
 import {
+  Breadcrumb,
   Button,
   Input,
   InputGroup,
@@ -64,11 +65,19 @@ export default function Custumer() {
         {data && (
           <Panel
             bordered
-            header={<h3 className="title">Cliente</h3>}
-            className="bg-white mb-4"
+            header={
+              <>
+                <h3 className="title">Cliente</h3>
+                <Breadcrumb>
+                  <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                  <Breadcrumb.Item active>Cliente</Breadcrumb.Item>
+                </Breadcrumb>
+              </>
+            }
+            className="bg-white"
           >
             <Stack
-              className="table-toolbar mb-3"
+              className="table-toolbar pb-3"
               justifyContent="space-between"
             >
               <Button

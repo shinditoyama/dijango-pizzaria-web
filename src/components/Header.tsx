@@ -12,12 +12,16 @@ export default function Header() {
 
   return (
     <Navbar>
-      {broken && (
+      {broken ? (
         <Navbar.Brand
           className="cursor-pointer"
           onClick={() => toggleSidebar()}
         >
           <Bars3BottomLeftIcon className="w-6 h-6" />
+        </Navbar.Brand>
+      ) : (
+        <Navbar.Brand href="/">
+          <h5>Dijango's Pizzaria</h5>
         </Navbar.Brand>
       )}
       <Nav pullRight>

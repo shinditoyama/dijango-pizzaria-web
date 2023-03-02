@@ -4,7 +4,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { ClipLoader } from "react-spinners";
-import { Panel } from "rsuite";
+import { Breadcrumb, Panel } from "rsuite";
 
 export default function CustumerId() {
   const router = useRouter();
@@ -48,11 +48,16 @@ export default function CustumerId() {
           <Panel
             bordered
             header={
-              <h3 className="title">
-                {orders[0].custumer.name} - Último pedido
-              </h3>
+              <>
+                <h3 className="title">{orders[0].custumer.name}</h3>
+                <Breadcrumb>
+                  <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                  <Breadcrumb.Item href="/custumer">Cliente</Breadcrumb.Item>
+                  <Breadcrumb.Item active>Último pedido</Breadcrumb.Item>
+                </Breadcrumb>
+              </>
             }
-            className="bg-white mb-4"
+            className="bg-white"
           >
             <div className="relative overflow-x-auto">
               <table className="w-full text-left">

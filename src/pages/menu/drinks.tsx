@@ -6,6 +6,7 @@ import Head from "next/head";
 import { useState } from "react";
 import { ClipLoader } from "react-spinners";
 import {
+  Breadcrumb,
   Button,
   Input,
   InputGroup,
@@ -13,7 +14,6 @@ import {
   Panel,
   Stack,
   Table,
-  Toggle,
 } from "rsuite";
 
 const { Column, HeaderCell, Cell } = Table;
@@ -70,11 +70,19 @@ export default function Drinks() {
         {data && (
           <Panel
             bordered
-            header={<h3 className="title">Bebidas</h3>}
-            className="bg-white mb-4"
+            header={
+              <>
+                <h3 className="title">Bebidas</h3>
+                <Breadcrumb>
+                  <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                  <Breadcrumb.Item active>Bebidas</Breadcrumb.Item>
+                </Breadcrumb>
+              </>
+            }
+            className="bg-white"
           >
             <Stack
-              className="table-toolbar mb-3"
+              className="table-toolbar pb-3"
               justifyContent="space-between"
             >
               <Button
@@ -123,7 +131,7 @@ export default function Drinks() {
                 </Cell>
               </Column>
 
-              <Column flexGrow={1}>
+              {/*<Column flexGrow={1}>
                 <HeaderCell>Ativo</HeaderCell>
                 <Cell>
                   {(rowData) => (
@@ -134,7 +142,7 @@ export default function Drinks() {
                     />
                   )}
                 </Cell>
-              </Column>
+              </Column>*/}
 
               <Column flexGrow={1}>
                 <HeaderCell>Ação</HeaderCell>

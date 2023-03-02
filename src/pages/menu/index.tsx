@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { ClipLoader } from "react-spinners";
 import {
+  Breadcrumb,
   Button,
   Input,
   InputGroup,
@@ -71,14 +72,22 @@ export default function Pizzas() {
         {data && (
           <Panel
             bordered
-            header={<h3 className="title">Pizza</h3>}
-            className="bg-white mb-4"
+            header={
+              <>
+                <h3 className="title">Pizza</h3>
+                <Breadcrumb>
+                  <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                  <Breadcrumb.Item active>Pizza</Breadcrumb.Item>
+                </Breadcrumb>
+              </>
+            }
+            className="bg-white"
           >
             <Stack
-              className="table-toolbar mb-3"
+              className="table-toolbar pb-3"
               justifyContent="space-between"
             >
-              <Stack spacing={4}>
+              <Stack spacing={6}>
                 <Button
                   color="blue"
                   appearance="primary"
@@ -146,7 +155,7 @@ export default function Pizzas() {
                 </Cell>
               </Column>
 
-              <Column flexGrow={1}>
+              {/*<Column flexGrow={1}>
                 <HeaderCell>Ativo</HeaderCell>
                 <Cell>
                   {(rowData) => (
@@ -157,7 +166,7 @@ export default function Pizzas() {
                     />
                   )}
                 </Cell>
-              </Column>
+              </Column>*/}
 
               <Column flexGrow={1}>
                 <HeaderCell>Ação</HeaderCell>
