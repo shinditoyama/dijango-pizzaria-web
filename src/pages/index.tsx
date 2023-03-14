@@ -1,11 +1,7 @@
 import ModalItem from "@/components/ModalItem";
 import FirebaseService from "@/lib/firebase.services";
-import { formatDate, formatDateTime } from "@/utils/dateFormat";
-import {
-  CheckIcon,
-  MagnifyingGlassIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/solid";
+import { formatDate } from "@/utils/dateFormat";
+import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { serverTimestamp } from "firebase/firestore";
 import Head from "next/head";
 import { useState } from "react";
@@ -79,7 +75,7 @@ export default function Home() {
                 </Cell>
               </Column>
 
-              <Column width={130}>
+              <Column flexGrow={1} width={130}>
                 <HeaderCell>Total</HeaderCell>
                 <Cell>
                   {(rowData) =>
@@ -93,19 +89,10 @@ export default function Home() {
                 </Cell>
               </Column>
 
-              <Column width={200}>
+              <Column flexGrow={1} width={200}>
                 <HeaderCell>Data</HeaderCell>
                 <Cell>
                   {(rowData) => formatDate(rowData.createdAt.seconds * 1000)}
-                </Cell>
-              </Column>
-
-              <Column width={200}>
-                <HeaderCell>Hora</HeaderCell>
-                <Cell>
-                  {(rowData) =>
-                    formatDateTime(rowData.createdAt.seconds * 1000)
-                  }
                 </Cell>
               </Column>
 
@@ -120,12 +107,12 @@ export default function Home() {
                       >
                         <MagnifyingGlassIcon className="w-4 h-4" />
                       </button>
-                      <button
+                      {/*<button
                         onClick={() => confirmOrder(rowData)}
                         className="text-green-500 hover:text-green-800"
                       >
                         <CheckIcon className="w-4 h-4" />
-                      </button>
+                      </button>*/}
                       <button
                         onClick={() => deleteOrder(rowData.id)}
                         className="text-red-500 hover:text-red-800"

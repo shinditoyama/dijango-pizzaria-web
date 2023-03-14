@@ -82,11 +82,15 @@ export default function ModalItem({ open, onClose, onPrint, temp }: Props) {
                   })}
                 </div>
                 <div className="ml-4">
-                  {item.additional &&
-                    `- Adicional: Borda ${item.additional.name}`}
+                  {item.observation && `- Observação: ${item.observation}`}
                 </div>
                 <div className="ml-4">
-                  {item.observation && `- Observação: ${item.observation}`}
+                  {item.additional?.name && `- Borda: ${item.additional.name}`}
+                </div>
+                <div className="ml-4">
+                  {item.optional?.map((v: any) => (
+                    <div key={v.name}>- Adicionais: {v.name}</div>
+                  ))}
                 </div>
               </div>
             ))}

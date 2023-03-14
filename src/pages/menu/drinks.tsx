@@ -88,7 +88,7 @@ export default function Drinks() {
               <Button
                 color="blue"
                 appearance="primary"
-                disabled={!user}
+                // disabled={!user}
                 onClick={() => createHandler()}
               >
                 Cadastrar Bebidas
@@ -150,14 +150,14 @@ export default function Drinks() {
                   {(rowData) => (
                     <div className="flex gap-4">
                       <button
-                        disabled={!user}
+                        //disabled={!user}
                         onClick={() => updateHandler(rowData)}
                         className="text-green-500 hover:text-green-800 disabled:text-gray-300"
                       >
                         <PencilSquareIcon className="w-4 h-4" />
                       </button>
                       <button
-                        disabled={!user}
+                        //disabled={!user}
                         onClick={() => deleteData(rowData.id, rowData.name)}
                         className="text-red-500 hover:text-red-800 disabled:text-gray-300"
                       >

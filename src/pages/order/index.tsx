@@ -1,7 +1,7 @@
 import ModalItem from "@/components/ModalItem";
 import { db } from "@/lib/firebase";
 import FirebaseService from "@/lib/firebase.services";
-import { formatDate, formatDateTime } from "@/utils/dateFormat";
+import { formatDate } from "@/utils/dateFormat";
 import { generatePDF } from "@/utils/generatePDF";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { endOfMonth, startOfMonth } from "date-fns";
@@ -155,12 +155,8 @@ export default function Order() {
               </Column>
 
               <Column width={200}>
-                <HeaderCell>Hora</HeaderCell>
-                <Cell>
-                  {(rowData) =>
-                    formatDateTime(rowData.createdAt.seconds * 1000)
-                  }
-                </Cell>
+                <HeaderCell>Pagamento</HeaderCell>
+                <Cell>{(rowData) => rowData.payment}</Cell>
               </Column>
 
               <Column flexGrow={1} width={200}>

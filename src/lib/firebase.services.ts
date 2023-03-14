@@ -10,6 +10,7 @@ import {
 } from "firebase/firestore";
 import {
   useAuthState,
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignOut,
 } from "react-firebase-hooks/auth";
@@ -32,6 +33,13 @@ class FirebaseService {
   signOut = () => {
     const [signOut, loading, error] = useSignOut(auth);
     return { signOut };
+  };
+
+  resetPassword = () => {
+    const [sendPasswordResetEmail, sending, error] =
+      useSendPasswordResetEmail(auth);
+
+    return { sendPasswordResetEmail, sending, error };
   };
 
   addDocument = (table: string, newData: any) => {

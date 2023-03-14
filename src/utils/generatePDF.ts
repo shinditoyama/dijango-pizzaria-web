@@ -1,13 +1,13 @@
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
-import { formatDate, formatDateTime } from "./dateFormat";
+import { formatDate } from "./dateFormat";
 
 export const generatePDF = (data: any, date: any, total: number) => {
   const doc = new jsPDF("p", "pt", "a4");
   const dataBody = data?.map((elt: any) => [
     formatDate(elt.createdAt.seconds * 1000),
-    formatDateTime(elt.createdAt.seconds * 1000),
     elt.table || elt.custumer.name,
+    elt.payment,
     elt.total.toLocaleString("pt-br", {
       style: "currency",
       currency: "BRL",
@@ -26,7 +26,7 @@ export const generatePDF = (data: any, date: any, total: number) => {
 
   autoTable(doc, {
     startY: 60,
-    head: [["Data", "Hora", "Pedido", "Valor"]],
+    head: [["Data", "Pedido", "Pagamento", "Valor"]],
     body: dataBody,
     theme: "grid",
     foot: [
