@@ -92,9 +92,18 @@ export default function Login() {
                   </button>
                 </div>
 
-                <Link href="/login/reset-password">
-                  <div className="text-right mt-4">Esqueci a senha.</div>
-                </Link>
+                <div className="flex justify-between mt-4">
+                  <Link href="/">
+                    <div className="right-0 inline-block text-sm font-light align-baseline text-500 text-blue-500 hover:text-blue-800">
+                      Voltar
+                    </div>
+                  </Link>
+                  <Link href="/login/reset-password">
+                    <div className="right-0 inline-block text-sm font-light align-baseline text-500 text-blue-500 hover:text-blue-800">
+                      Esqueci a senha
+                    </div>
+                  </Link>
+                </div>
 
                 {error && (
                   <div className="text-red-500 text-center mt-4">

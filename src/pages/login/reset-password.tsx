@@ -73,9 +73,13 @@ export default function ResetPassword() {
                   </button>
                 </div>
 
-                <Link href="/login">
-                  <div className="text-right mt-4">Efetuar Login.</div>
-                </Link>
+                <div className="text-right mt-4">
+                  <Link href="/login">
+                    <div className="right-0 inline-block text-sm font-light align-baseline text-500 text-blue-500 hover:text-blue-800">
+                      Efetuar Login
+                    </div>
+                  </Link>
+                </div>
 
                 {error && (
                   <div className="text-red-500 text-center mt-4">
